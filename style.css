@@ -1,138 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-dark: #0a0d14;
+    --card-bg: rgba(16, 23, 38, 0.75);
+    --accent-blue: #00d2ff;
+    --accent-purple: #7928ca;
+    --accent-gold: #ffd700;
+    --accent-red: #ff2a5f;
+    --text-main: #f1f5f9;
+    --text-sub: #94a3b8;
+    --border-glow: rgba(0, 210, 255, 0.25);
+}
 
 html {
-    background-image: url('img.jpg');
-    background-position: center top;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: #000000;
-    color: white;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
     text-align: center;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 10px;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* رفع العناصر للأعلى لعدم تغطية منتصف الصورة */
+    align-items: center;
+    padding: 20px;
+    /* خلفية ديناميكية بلمسة ألعاب حصرية مع دوائر نيون غائمة في الخلفية */
+    background: 
+        radial-gradient(circle at 15% 20%, rgba(121, 40, 202, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(0, 210, 255, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, #0d1322 0%, #06080d 100%);
+    background-attachment: fixed;
 }
 
-h1 {
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.8);
-    font-size: 24px;
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-family: 'Orbitron', sans-serif;
-}
-
-/* شريط الرسائل مظلل بخفية داكنة خفيفة لضمان وضوح النص فوق الصورة */
-h1#msgs {
-    font-size: 20px;
-    color: #ffd700;
-    margin: 15px auto;
-    padding: 12px 20px;
-    max-width: 90%;
-    background: rgba(0, 0, 0, 0.65); 
-    border-radius: 10px;
-    border: 1px solid rgba(255, 215, 0, 0.4);
-    font-family: 'Rajdhani', sans-serif;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(3px);
-}
-
-/* تنسيق الرسائل باللون الأحمر المضيء */
-.red-status {
-    color: #ff3333 !important;
-    font-weight: bold !important;
-    text-shadow: 0 0 12px rgba(255, 51, 51, 0.9), 0 2px 4px #000 !important;
-    letter-spacing: 1px;
-}
-
-/* تنسيق الرسائل باللون الذهبي */
-.gold-status {
-    color: #ffd700 !important;
-    font-weight: bold !important;
-    text-shadow: 0 0 12px rgba(255, 215, 0, 0.8), 0 2px 4px #000 !important;
-    letter-spacing: 1px;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-hr {
-    border: none;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #ff3333, transparent);
-    margin: 15px auto;
-    width: 70%;
-}
-
-#progress {
-    display: block;
-    width: 80%;
-    margin: 15px auto;
-    height: 8px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-/* إزالة الخلفية والبلور المعتم حتى لا يغطي الشعار */
+/* بطاقة الهوست الرئيسية مع تأثير الزجاج الضبابي (Glassmorphism) */
 #menu, #crypto, #tools, #lnx, #mods {
     display: block;
     width: 100%;
-    max-width: 650px;
-    margin: 10px auto 0 auto;
-    padding: 10px;
-    background: transparent;
-    border: none;
-    backdrop-filter: none;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 35px 25px;
+    background: var(--card-bg);
+    border-radius: 24px;
+    border: 1px solid var(--border-glow);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(0, 210, 255, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    transition: transform 0.3s ease;
 }
 
 #crypto, #tools, #lnx, #mods {
     display: none;
 }
 
-.btn {
-    background: linear-gradient(145deg, rgba(26, 58, 92, 0.9), rgba(0, 50, 99, 0.9));
-    color: white;
-    width: 260px;
-    height: 48px;
-    padding-bottom: 3px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 700;
-    margin: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-    font-family: 'Rajdhani', sans-serif;
-}
-
-.btn:hover {
-    background: linear-gradient(145deg, #0073e6, #005bb5);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 115, 230, 0.6);
-}
-
-.btn-onln {
-    background: linear-gradient(145deg, rgba(45, 106, 79, 0.9), rgba(27, 67, 50, 0.9));
-}
-
-.btn-onln:hover {
-    background: linear-gradient(145deg, #40916c, #2d6a4f);
-}
-
-/* عناوين الواجهة */
+/* الهيدر والعناوين */
 .title-container {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .main-title {
@@ -140,111 +71,172 @@ hr {
     font-size: 2.2rem;
     font-weight: 900;
     line-height: 1.2;
-    letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 5px;
 }
 
-.name-mustafa, .name-powerstore {
+/* اسم PowerStore بتدرج ذهبي متلألئ وشعار مضيء */
+.name-powerstore, .name-mustafa {
     display: block;
-    font-size: 2.6rem;
+    font-size: 2.9rem;
     font-weight: 900;
-    background: linear-gradient(90deg, #ffd700, #ffaa00, #ffd700, #ffec80, #ffd700);
-    background-size: 200% auto;
+    background: linear-gradient(135deg, #fff7ad 0%, #ffd700 50%, #ffaa00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: goldShine 3s linear infinite;
-    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.9));
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.4));
     letter-spacing: 4px;
 }
 
-@keyframes goldShine {
-    to { background-position: 200% center; }
-}
-
+/* الشارات PS4 و PS5 بتأثير Cyberpunk */
 .ps4-title {
     display: inline-block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #00bfff;
-    text-shadow: 0 0 15px rgba(0, 191, 255, 0.9), 0 2px 4px #000;
-    margin: 5px 8px;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--accent-blue);
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.7);
+    margin: 8px 12px 0 12px;
     letter-spacing: 3px;
 }
 
 .ps5-title {
     display: inline-block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ff4757;
-    text-shadow: 0 0 15px rgba(255, 71, 87, 0.9), 0 2px 4px #000;
-    margin: 5px 8px;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--accent-red);
+    text-shadow: 0 0 15px rgba(255, 42, 95, 0.7);
+    margin: 8px 12px 0 12px;
     letter-spacing: 3px;
 }
 
 .subtitle {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.1rem;
-    color: #ffffff;
-    text-shadow: 0 2px 6px #000;
-    letter-spacing: 4px;
+    font-size: 1rem;
+    color: var(--text-sub);
+    letter-spacing: 6px;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-top: 8px;
     font-weight: 700;
 }
 
+/* شريحة الإصدار (Badge) متدرجة وأنيقة */
 .version-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #ffd700, #ff6b6b);
-    color: #1a1a1a;
-    padding: 6px 20px;
-    border-radius: 30px;
-    font-weight: 800;
-    font-size: 0.95rem;
-    margin: 5px 0 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    background: linear-gradient(90deg, #00d2ff 0%, #7928ca 100%);
+    color: #ffffff;
+    padding: 6px 22px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin: 15px 0 5px 0;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
     letter-spacing: 2px;
-    text-transform: uppercase;
     font-family: 'Orbitron', sans-serif;
 }
 
-/* الفوتر */
-.credit {
-    font-size: 1rem;
-    margin-bottom: 5px;
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0, 210, 255, 0.4), transparent);
+    margin: 22px auto;
+    width: 85%;
+}
+
+/* شريط الرسائل وإشعارات الكاش */
+h1#msgs {
+    font-size: 17px;
+    color: var(--accent-gold);
+    margin: 15px auto;
+    padding: 14px 18px;
+    background: rgba(6, 9, 16, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.red-status {
+    color: var(--accent-red) !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 10px rgba(255, 42, 95, 0.5) !important;
+}
+
+.gold-status {
+    color: var(--accent-gold) !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5) !important;
+}
+
+/* الأزرار التفاعلية بتصميم Cyberpunk ثلاثي الأبعاد */
+.btn {
+    background: linear-gradient(135deg, rgba(22, 33, 54, 0.9), rgba(13, 20, 35, 0.9));
     color: #ffffff;
-    text-shadow: 0 2px 4px #000;
-    font-weight: 600;
+    width: 250px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 8px 6px;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    border-radius: 12px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    font-family: 'Rajdhani', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #00d2ff, #0072ff);
+    color: #ffffff;
+    border-color: #00d2ff;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.45);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+/* الفوتر */
+footer {
+    margin-top: 15px;
+}
+
+.credit {
+    font-size: 0.95rem;
+    color: var(--text-sub);
 }
 
 .credit-link {
-    color: #ffd700;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.8), 0 2px 4px #000;
+    color: var(--accent-gold);
     text-decoration: none;
-    font-weight: 800;
-    font-size: 1.1rem;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.credit-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px var(--accent-gold);
 }
 
 .thanks {
     font-size: 0.85rem;
-    color: #dddddd;
-    text-shadow: 0 2px 4px #000;
-    margin-top: 5px;
-    letter-spacing: 1px;
+    color: #64748b;
+    margin-top: 6px;
 }
 
-/* استجابة للموبايل والشاشات الصغيرة */
+/* التجاوب مع مختلف الشاشات */
 @media (max-width: 600px) {
-    .btn {
-        width: 90%;
+    #menu, #crypto, #tools, #lnx, #mods {
+        padding: 25px 15px;
+        border-radius: 18px;
     }
-    .main-title {
-        font-size: 1.6rem;
+    .btn { 
+        width: 92%; 
+        height: 48px;
     }
-    .name-mustafa, .name-powerstore {
-        font-size: 2.1rem;
+    .name-powerstore, .name-mustafa { 
+        font-size: 2.2rem; 
     }
-    .ps4-title, .ps5-title {
-        font-size: 1.4rem;
+    .ps4-title, .ps5-title { 
+        font-size: 1.4rem; 
     }
 }
